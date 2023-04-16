@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: project-jupyter
+  labels:
+    app: project-jupyter
+spec:
+  selector:
+    matchLabels:
+      app: project-jupyter
+  replicas: 2
+  minReadySeconds: 15
+  strategy:
+    type: RollingUpdate
+    rollingUpdate: 
+      maxUnavailable: 1
+      maxSurge: 1 
+  template:
+    metadata:
+      labels:
+        app: project-jupyter
+    spec:
+      containers:
+        - image: levyleader/jupyternotebook
+          imagePullPolicy: Always
+          name: project-jupyter
+          ports:
+            - containerPort: 80
