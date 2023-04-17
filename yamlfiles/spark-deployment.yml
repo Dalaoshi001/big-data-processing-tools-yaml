@@ -25,4 +25,4 @@ spec:
           imagePullPolicy: Always
           name: project-spark
           ports:
-            - containerPort: 8888
+            - containerPort: 8080
