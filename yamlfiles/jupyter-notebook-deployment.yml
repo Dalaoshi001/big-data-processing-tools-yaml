@@ -21,7 +21,7 @@ spec:
         app: project-jupyter
     spec:
       containers:
-        - image: levyleader/jupyternotebook
+        - image: levyleader/jupyter-notebook
           imagePullPolicy: Always
           name: project-jupyter
           ports:
