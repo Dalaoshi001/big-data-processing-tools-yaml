@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service              # 1
+metadata:
+  name: bigtools-frontend
+spec:
+  type: LoadBalancer       # 2
+  ports:
+  - port: 10018               # 3
+    protocol: TCP          # 4
+    targetPort: 10018         # 5
+  selector:                # 6
+    app: bigtools-frontend       # 7

@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment                                          # 1
+metadata:
+  name: bigtools-frontend
+  labels:
+    app: bigtools-frontend
+spec:
+  selector:
+    matchLabels:
+      app: bigtools-frontend
+  replicas: 2                                             # 2
+  minReadySeconds: 15
+  strategy:
+    type: RollingUpdate                                   # 3
+    rollingUpdate: 
+      maxUnavailable: 1                                   # 4
+      maxSurge: 1                                         # 5
+  template:
+    metadata:
+      labels:
+        app: bigtools-frontend                                  # 6
+    spec:
+      containers:
+        - image: levyleader/big-data-processing-tools
+          imagePullPolicy: Always                         # 7
+          name: bigtools-frontend
+          ports:
+            - containerPort: 10018
