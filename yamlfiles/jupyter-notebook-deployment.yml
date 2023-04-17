@@ -25,4 +25,4 @@ spec:
           imagePullPolicy: Always
           name: project-jupyter
           ports:
-            - containerPort: 80
+            - containerPort: 8888
