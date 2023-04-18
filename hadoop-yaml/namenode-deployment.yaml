@@ -24,6 +24,13 @@ spec:
       labels:
         io.kompose.service: namenode
     spec:
+      initContainers:
+        - name: delete-lost-found
+          image: busybox
+          command: ["sh", "-c", "rm -rf /hadoop/dfs/name/lost+found"]
+          volumeMounts:
+            - name: hdfs-name-pv-claim
+              mountPath: /hadoop/dfs/name
       containers:
         - env:
             - name: CLUSTER_NAME
