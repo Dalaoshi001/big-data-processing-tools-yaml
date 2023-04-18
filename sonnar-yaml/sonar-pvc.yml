@@ -2,7 +2,6 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: sonar-pvc
-  namespace: sonar
 spec:
   accessModes:
     - ReadWriteOnce
