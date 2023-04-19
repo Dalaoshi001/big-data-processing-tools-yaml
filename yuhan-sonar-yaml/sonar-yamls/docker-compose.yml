@@ -22,10 +22,12 @@ services:
     environment:
       POSTGRES_USER: sonar
       POSTGRES_PASSWORD: sonar
-      POSTGRES_DB: sonar
+      POSTGRES_DATABASE: sonar
     volumes:
       - postgresql:/var/lib/postgresql
       - postgresql_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
 
 volumes:
   sonarqube_data:

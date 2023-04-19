@@ -26,16 +26,16 @@ spec:
     spec:
       containers:
         - env:
-            - name: POSTGRES_DB
+            - name: POSTGRES_DATABASE
               value: sonar
             - name: POSTGRES_PASSWORD
               value: sonar
             - name: POSTGRES_USER
               value: sonar
-            - name: PGDATA
-              value: /var/lib/postgresql/data/some_name/
           image: postgres:13
           name: postgresql
+          ports:
+            - containerPort: 5432
           resources: {}
           volumeMounts:
             - mountPath: /var/lib/postgresql
