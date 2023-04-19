@@ -32,6 +32,8 @@ spec:
               value: sonar
             - name: POSTGRES_USER
               value: sonar
+            - name: PGDATA
+              value: /var/lib/postgresql/data/some_name/
           image: postgres:13
           name: postgresql
           ports:
